@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Drink";
+}
+
+@section scripts{
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <script src="~/lib/angular.js"></script>
+    <script type="text/javascript">
+        function dragstart_handler(ev) {
+            console.log("dragStart: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
+
+            // Add this element's id to the drag payload so the drop handler will
+            // know which element to add to its tree
+            ev.dataTransfer.setData("text", ev.target.id);
+            ev.dataTransfer.effectAllowed = "move";
+        }
+
+        function drop_handler(ev) {
+            console.log("drop: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
+            ev.preventDefault();
+
+            // Get the id of the target and add the moved element to the target's DOM
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+
+        function dragover_handler(ev) {
+            console.log("dragOver: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
+            ev.preventDefault();
+            // Set the dropEffect to move
+            ev.dataTransfer.dropEffect = "move"
+        }
+    </script>
+}
+
+
+<h2>Under construction!</h2>
+
+<input type="text" ng-model="helloAngular" />
+
+
+
+<div id="target2" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
+    Drop Zone2222
+    <p id="source" ondragstart="dragstart_handler(event);" draggable="true">
+        Select this element, drag it to the Drop Zone and then release the selection to move the element.
+    </p>
+</div>
+<div id="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">Drop Zone</div>
+

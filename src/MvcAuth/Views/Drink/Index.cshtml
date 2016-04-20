@@ -40,11 +40,25 @@
 
 
 
-<div id="target2" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
-    Drop Zone2222
+<div style="background: #ccc;" id="target2" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
+    Ingredients
     <p id="source" ondragstart="dragstart_handler(event);" draggable="true">
         Select this element, drag it to the Drop Zone and then release the selection to move the element.
     </p>
 </div>
-<div id="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">Drop Zone</div>
+
+<div style="background: #fc0;" id="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
+    <p>
+        Mix
+    </p>
+</div>
+
+<div style="background: #b6ff00;" id="result">
+    Cocktails
+    @if (true)
+    {
+
+    }
+</div>
+
 

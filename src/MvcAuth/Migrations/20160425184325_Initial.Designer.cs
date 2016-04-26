@@ -8,9 +8,10 @@ using MvcAuth.Models;
 namespace MvcAuth.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160425184325_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -150,24 +151,6 @@ namespace MvcAuth.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Title");
-
-                    b.HasKey("ID");
-                });
-
-            modelBuilder.Entity("MvcAuth.Models.TaskManager", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("Deadline");
-
-                    b.Property<string>("Description");
-
-                    b.Property<int>("Importance");
-
-                    b.Property<bool>("IsFinished");
 
                     b.Property<string>("Title");
 
